@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:titleTextColor="@android:color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/bulk_add" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter YouTube URLs (one per line)"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:hint="https://www.youtube.com/watch?v=dQw4w9WgXcQ&#10;https://youtu.be/VIDEO_ID&#10;..."
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/edit_text"
+            android:padding="12dp"
+            android:scrollbars="vertical"
+            android:layout_marginBottom="8dp"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/countText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0 video(s) detected"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:minHeight="60dp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/addToQueueButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Queue"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp" />
+
+        <Button
+            android:id="@+id/clearInputButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear Input"
+            android:textSize="14sp"
+            android:padding="12dp"
+            style="?android:attr/borderlessButtonStyle" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

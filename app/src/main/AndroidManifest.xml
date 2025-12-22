@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.imjerry.tubearchivistshare">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Share Handler Activity -->
+        <activity
+            android:name=".ShareHandlerActivity"
+            android:exported="true"
+            android:label="@string/share_to_tubearchivist"
+            android:theme="@style/Theme.Transparent"
+            android:noHistory="true">
+            
+            <!-- Handle YouTube URLs shared as text -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <!-- Handle YouTube app shares -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="youtube.com" />
+                <data android:scheme="https" android:host="youtube.com" />
+                <data android:scheme="http" android:host="www.youtube.com" />
+                <data android:scheme="https" android:host="www.youtube.com" />
+                <data android:scheme="http" android:host="youtu.be" />
+                <data android:scheme="https" android:host="youtu.be" />
+                <data android:scheme="http" android:host="m.youtube.com" />
+                <data android:scheme="https" android:host="m.youtube.com" />
+            </intent-filter>
+        </activity>
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Activity Log Activity -->
+        <activity
+            android:name=".ActivityLogActivity"
+            android:exported="false"
+            android:label="@string/activity_log"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Bulk Add Activity -->
+        <activity
+            android:name=".BulkAddActivity"
+            android:exported="false"
+            android:label="@string/bulk_add"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+</manifest>
